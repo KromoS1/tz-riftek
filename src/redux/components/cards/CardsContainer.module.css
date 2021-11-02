@@ -1,0 +1,23 @@
+.cardsContainer{
+    background-color: #79b0be;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    padding:5px;
+}
+
+.card{
+    margin-left: 15px;
+    width: 200px;
+    height: 70px;
+    background-color: yellowgreen;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: 'Arial',serif ;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

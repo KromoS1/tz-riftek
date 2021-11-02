@@ -1,0 +1,23 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    background-color: #61dafb;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    width: 85%;
+}
+
+.logo{
+    height: 35px;
+}
+
+.name{
+    font-size: 20px;
+    margin-left: 40px;
+    font-family: "Arial Black",serif ;
+}
