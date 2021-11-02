@@ -4,8 +4,9 @@ import Control from "./control";
 import {compose} from "redux";
 import {useDispatch} from "react-redux";
 import {setParamDevice} from "./redux/reducers/paramsDeviceReducer";
-import Header from "./redux/components/header/Header";
-import CardsContainer from "./redux/components/cards/Cards";
+import Header from "./components/header/Header";
+import CardsContainer from "./components/cards/CardsContainer";
+import Navigate from "./components/nav/Navigate";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <div className="App">
             <Header/>
             <CardsContainer/>
+            <Navigate/>
         </div>
     );
 }
