@@ -1,15 +1,11 @@
-import {compose} from "redux";
-import {memo} from "react";
 import style from './CardsContainer.module.css';
 
-function Card(props) {
-
+export const Card = ({value,name}) => {
     return (
         <div className={style.card}>
-            <span className={style.value}>{props.value}</span>
-            <span className={style.name}>{props.name} </span>
+            <span className={style.value}>{value}</span>
+            <span className={style.name}>{name} </span>
         </div>
     )
 }
 
-export default compose(memo)(Card);

@@ -2,3 +2,15 @@
   width: 100vw;
   min-height: 100vh;
 }
+.contentBox{
+  width: 100%;
+  display: flex;
+  background-color: gray;
+}
+
+.content{
+  width: 93%;
+  min-height: 585px;
+  font-size: 16px;
+  font-family: 'Arial',serif ;
+}

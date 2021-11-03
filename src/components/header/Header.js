@@ -1,11 +1,8 @@
-import React from "react";
-import {compose} from "redux";
-import {memo} from "react";
+import React, {memo} from "react";
 import {useSelector} from "react-redux";
 import style from './Header.module.css';
 
-function Header() {
-
+export const Header = memo(() => {
     const logo = 'https://riftek.com/local/templates/.default/img/logo-mob.svg';
     const deviceName = useSelector(state => state.paramsDevice.user_general_deviceName);
 
@@ -17,7 +14,4 @@ function Header() {
             </div>
         </header>
     )
-
-}
-
-export default compose(memo)(Header);
+})

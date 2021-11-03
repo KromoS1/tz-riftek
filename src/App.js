@@ -1,34 +1,35 @@
 import './App.css';
 import React, {memo, useEffect, useState} from "react";
 import Control from "./control";
-import {compose} from "redux";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setParamDevice} from "./redux/reducers/paramsDeviceReducer";
-import Header from "./components/header/Header";
-import CardsContainer from "./components/cards/CardsContainer";
-import Navigate from "./components/nav/Navigate";
-import General from "./components/tabs/general/General";
+import {Header} from "./components/header/Header";
+import {CardsContainer} from "./components/cards/CardsContainer";
+import {Navigate} from "./components/nav/Navigate";
+import {General} from "./components/tabs/general/General";
+import {System} from "./components/tabs/system/System";
+import {Route} from "react-router-dom";
 
-function App() {
+export const App = memo(() => {
 
     const [init,setInit] = useState(false);
 
-    const control = new Control('localhost');
+    const ws = new Control('localhost');
     const dispatch = useDispatch();
 
     const initialize = () => {
         setTimeout(() => {
             setInit(true)
         },1000)
-        control.init();
+        ws.init();
     }
 
     useEffect(() => {
-        control.setCallback('paramsUpdate', (data) => {
+        ws.setCallback('paramsUpdate', (data) => {
             dispatch(setParamDevice(data))
             // console.log(data)
-            console.log(data.user_sensor_framerate)
         });
+
         initialize()
     }, [])
 
@@ -42,10 +43,15 @@ function App() {
         <div className="App">
             <Header/>
             <CardsContainer/>
-            <Navigate/>
-            <General control={control} />
+            <div className={'contentBox'}>
+                <Navigate/>
+                <div className={'content'}>
+                    <Route path={'/general'} render={() => <General ws={ws}/>}/>
+                    <Route path={'/system'} render={() => <System/>}/>
+                </div>
+            </div>
         </div>
     );
-}
+})
 
-export default compose(memo)(App);
+
