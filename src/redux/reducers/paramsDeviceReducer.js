@@ -1,5 +1,4 @@
-
-export const setParamDevice = (params) => ({type:'PARAMS-DEVICE/SET-PARAMS',params});
+export const setParamDevice = (params) => ({type: 'PARAMS-DEVICE/SET-PARAMS', params});
 
 const initialState = {
     fact_general_lifeTime: 0,
@@ -12,10 +11,10 @@ const initialState = {
     user_trigger_counter_value: 0,
 }
 
-export const paramsDeviceReducer = (state = initialState,action) => {
-    switch (action.type){
+export const paramsDeviceReducer = (state = initialState, action) => {
+    switch (action.type) {
         case 'PARAMS-DEVICE/SET-PARAMS':
-            return {...action.params}
+            return {...state, ...action.params}
         default:
             return state
     }

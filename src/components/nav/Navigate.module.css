@@ -1,7 +1,7 @@
 .container{
     position: absolute;
     left: 0;
-    width: 100px;
+    width: 7%;
     min-height: 585px;
     background-color: yellowgreen;
     border-right: 2px solid black;
