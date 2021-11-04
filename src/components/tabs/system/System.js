@@ -1,4 +1,4 @@
-import {memo} from "react";
+import React, {memo} from "react";
 import {useSelector} from "react-redux";
 import style from './System.module.css';
 import {ParamInfo} from "./ParamInfo";
@@ -8,15 +8,20 @@ export const System = memo(() => {
     const lifeTime = useSelector(state => state.paramsDevice.fact_general_lifeTime)
     const workTime = useSelector(state => state.paramsDevice.fact_general_workTime)
     const sysMon_fpgaTemp = useSelector(state => state.paramsDevice.user_sysMon_fpgaTemp)
+    const isInit = useSelector(state => state.isInit.isInit);
 
     return (
         <div className={style.container}>
-            <div className={style.boxForm}>
-                <div className={style.title}>Device Information</div>
-                <ParamInfo name={'Work'} value={workTime} type={'time'}/>
-                <ParamInfo name={'Total'} value={lifeTime} type={'time'}/>
-                <ParamInfo name={'CMOS-sensor temperature'} value={sysMon_fpgaTemp} type={'temp'}/>
-            </div>
+            {!isInit
+                ? <></>
+                    : <>
+                        <div className={style.boxForm}>
+                            <div className={style.title}>Device Information</div>
+                            <ParamInfo name={'Work'} value={workTime} type={'time'}/>
+                            <ParamInfo name={'Total'} value={lifeTime} type={'time'}/>
+                            <ParamInfo name={'CMOS-sensor temperature'} value={sysMon_fpgaTemp} type={'temp'}/>
+                        </div>
+                    </>}
         </div>
     )
 })

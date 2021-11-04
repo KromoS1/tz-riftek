@@ -8,7 +8,7 @@ export const LaserEnabled = memo(({ws}) => {
 
     const clickLaser = useCallback((event) => {
         ws.setParameter('user_laser_enabled', event.currentTarget.checked);
-    }, [])
+    }, [ws])
 
     return (
         <div className={style.laser}>

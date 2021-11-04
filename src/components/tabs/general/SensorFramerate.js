@@ -9,7 +9,7 @@ export const SensorFramerate = memo(({ws}) => {
     const update = useCallback((event) => {
         setRange(event.currentTarget.value)
         ws.setParameter('user_sensor_framerate', event.currentTarget.value);
-    }, [])
+    }, [ws])
 
     return (
         <div className={style.rangeBox}>

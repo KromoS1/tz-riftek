@@ -1,18 +1,6 @@
-.rangeBox{
-    margin-top: 20px;
-    width: 90%;
-    height: 100px;
-    background-color: #cecece;
-    border:1px solid #a9a9a9;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.controls{
-    width: 300px;
-    height: 585px;
+.controls {
+    width: 20%;
+    height: 100%;
     background-color: #c7c7c7;
     border-right: 2px solid black;
     border-top: 2px solid black;
@@ -21,24 +9,84 @@
     align-items: center;
 }
 
-.titleRate{
+.rangeBox {
+    margin-top: 20px;
+    width: 90%;
+    height: 100px;
+    background-color: #cecece;
+    border: 1px solid #a9a9a9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.titleRate {
     align-self: center;
 }
 
-.range{
+.range {
     display: flex;
     justify-content: space-around;
 }
 
-.laser{
+.laser {
     margin-top: 20px;
     width: 90%;
     height: 50px;
     background-color: #cecece;
-    border:1px solid #a9a9a9;
+    border: 1px solid #a9a9a9;
     border-radius: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
+.imageBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c7c7c7;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    width: 80%;
+}
+
+.canvas {
+    border: 2px solid black;
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1600px) {
+    .controls {
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
+    .controls {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+    .controls {
+        width: 100%;
+        height: 25%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .rangeBox,.laser{
+        width: 40%;
+    }
+    .imageBox{
+        width: 100%;
+        height: 75%;
+    }
+}
+
+@media screen and (min-height: 600px) and (max-height: 880px) {
+    .canvas{
+        width: 400px;
+        height: 388px;
+    }
+}

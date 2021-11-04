@@ -1,5 +1,5 @@
 import './App.css';
-import React, {memo, useEffect, useState} from "react";
+import React, {memo, useEffect} from "react";
 import Control from "./control";
 import {useDispatch} from "react-redux";
 import {setParamDevice} from "./redux/reducers/paramsDeviceReducer";
@@ -12,32 +12,15 @@ import {Route} from "react-router-dom";
 
 export const App = memo(() => {
 
-    const [init,setInit] = useState(false);
-
     const ws = new Control('localhost');
     const dispatch = useDispatch();
-
-    const initialize = () => {
-        setTimeout(() => {
-            setInit(true)
-        },1000)
-        ws.init();
-    }
 
     useEffect(() => {
         ws.setCallback('paramsUpdate', (data) => {
             dispatch(setParamDevice(data))
-            // console.log(data)
         });
-
-        initialize()
+        ws.init();
     }, [])
-
-    if (!init){
-        return<div>
-            <h1>Loading...</h1>
-        </div>
-    }
 
     return (
         <div className="App">
